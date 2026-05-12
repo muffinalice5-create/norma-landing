@@ -164,34 +164,14 @@
   .hero-visual {
     position: relative; width: 100%; height: 100%;
     border-radius: 28px; overflow: hidden;
-    background: linear-gradient(160deg, #EAE4DA 0%, #D9D0C0 100%);
+    background: #1A1810;
   }
-  .photo-placeholder {
+  /* Hero video */
+  .hero-video {
     position: absolute; inset: 0;
-    background-image:
-      repeating-linear-gradient(135deg, rgba(255,255,255,0.18) 0 2px, transparent 2px 14px),
-      linear-gradient(160deg, #E5DDD0 0%, #C9BFAE 100%);
-    display: flex; align-items: flex-end; padding: 28px;
-  }
-  .photo-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    background: rgba(26,26,26,0.7); color: #fff;
-    padding: 6px 10px; border-radius: 6px;
-  }
-  /* warm sun glow */
-  .photo-placeholder::after {
-    content: "";
-    position: absolute; top: -20%; right: -10%;
-    width: 60%; height: 60%; border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,220,170,0.55), transparent 70%);
-  }
-  /* abstract pet silhouette */
-  .photo-placeholder svg.silhouette {
-    position: absolute; bottom: 8%; left: 50%; transform: translateX(-30%);
-    width: 70%; opacity: 0.35;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .glass-card {
@@ -1196,23 +1176,9 @@
 
     <div class="hero-visual-wrap">
       <div class="hero-visual">
-        <div class="photo-placeholder">
-        <!-- split: dog silhouette on left, cat on right -->
-        <svg class="silhouette" viewBox="0 0 320 200" fill="#3A3026" style="width:90%; left:50%; transform:translateX(-50%);">
-          <!-- dog (pug) -->
-          <ellipse cx="95" cy="145" rx="55" ry="38"/>
-          <circle cx="95" cy="90" r="36"/>
-          <ellipse cx="72" cy="75" rx="11" ry="16" transform="rotate(-20 72 75)"/>
-          <ellipse cx="118" cy="75" rx="11" ry="16" transform="rotate(20 118 75)"/>
-          <!-- cat -->
-          <ellipse cx="225" cy="150" rx="48" ry="34"/>
-          <circle cx="225" cy="100" r="28"/>
-          <polygon points="208,82 200,62 222,80"/>
-          <polygon points="242,82 250,62 228,80"/>
-          <path d="M270 160 Q295 130 280 110" stroke="#3A3026" stroke-width="6" fill="none"/>
-        </svg>
-          <span class="photo-tag">[фото] кот и собака · возрастные · тёплый дневной свет</span>
-        </div>
+        <video class="hero-video" autoplay muted loop playsinline>
+          <source src="hero.mp4" type="video/mp4">
+        </video>
       </div>
 
       <!-- Push notification card -->
