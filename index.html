@@ -271,15 +271,23 @@
   .collar-svg { width: 64%; height: auto; filter: drop-shadow(0 20px 40px rgba(86, 64, 36, 0.18)); }
   .device-specs { list-style: none; padding: 0; margin: 32px 0 0; }
   .device-specs li {
-    display: grid; grid-template-columns: 40px 1fr; gap: 16px; align-items: baseline;
+    display: grid; grid-template-columns: 44px 1fr; gap: 18px; align-items: flex-start;
     padding: 18px 0;
     border-bottom: 1px solid var(--line);
     font-size: 16px;
   }
   .device-specs li:last-child { border-bottom: 0; }
-  .device-specs .ico { font-size: 18px; line-height: 1; }
-  .device-specs .k { font-family: 'DM Sans'; font-weight: 600; color: var(--ink); font-size: 17px; letter-spacing: -0.01em; }
-  .device-specs .v { color: var(--muted); font-size: 14px; margin-top: 4px; }
+  .device-specs .ico {
+    width: 40px; height: 40px;
+    background: var(--sage-tint);
+    border-radius: 10px;
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--sage-deep);
+    flex-shrink: 0;
+  }
+  .device-specs .ico svg { display: block; }
+  .device-specs .k { font-family: 'DM Sans'; font-weight: 600; color: var(--ink); font-size: 17px; letter-spacing: -0.01em; padding-top: 6px; }
+  .device-specs .v { color: var(--muted); font-size: 14px; margin-top: 4px; line-height: 1.5; }
   .device-foot { margin-top: 28px; font-size: 16px; color: var(--ink-2); line-height: 1.6; max-width: 480px; }
 
   /* === APP MOCKUP for personal norm === */
@@ -464,6 +472,7 @@
   .founder .grid {
     display: grid; grid-template-columns: 0.9fr 1fr; gap: 80px; align-items: center;
   }
+  .founder-grid { grid-template-columns: 1.15fr 1fr; }
   .founder-photo {
     aspect-ratio: 4/5; border-radius: 24px; overflow: hidden;
     background-image:
@@ -487,6 +496,17 @@
     font-family: 'Lora', serif; font-style: italic; font-size: 17px; color: var(--ink);
   }
   .founder-text .signature span { color: var(--muted); font-style: normal; font-family: 'Inter', sans-serif; font-size: 14px; display: block; margin-top: 4px; letter-spacing: 0.02em; }
+  .founder-story { margin-top: 28px; max-width: 480px; }
+  .founder-story .fs-line {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 23px;
+    line-height: 1.55;
+    color: var(--ink);
+    margin: 0 0 12px;
+  }
+  .founder-story .fs-line:last-child { margin-bottom: 0; }
+  .founder-story .fs-emph { color: var(--sage-deep); font-weight: 500; margin-top: 18px; }
 
   /* === PROBLEM === */
   .problem .head { max-width: 720px; margin-bottom: 64px; }
@@ -967,7 +987,7 @@
   /* === RESPONSIVE === */
   @media (max-width: 900px) {
     .section { padding: 80px 0; }
-    .hero .grid, .founder .grid, .device .grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero .grid, .founder .grid, .device .grid, .founder-grid { grid-template-columns: 1fr; gap: 48px; }
     .problem-grid, .feat-grid, .steps, .app-mock, .stories, .compete-grid { grid-template-columns: 1fr; gap: 16px; }
     .step + .step { border-left: 0; border-top: 1px solid var(--line); }
     .compare { grid-template-columns: 1fr; padding: 28px; }
@@ -1282,17 +1302,19 @@
 
 <!-- SECTION 3: FOUNDER -->
 <section class="section warm founder reveal" id="story">
-  <div class="container grid" style="grid-template-columns: 1.15fr 1fr;">
+  <div class="container grid founder-grid">
     <div class="founder-photo" style="aspect-ratio: 5/6;">
       <span class="tag">[фото] кандидное · Денис и Мира · тёплый свет, домашняя обстановка</span>
     </div>
     <div class="founder-text">
       <span class="eyebrow">Почему мы это делаем</span>
-      <p style="font-family: 'Lora', serif; font-style: italic; font-size: 24px; line-height: 1.55; color: var(--ink); margin-top: 28px; max-width: 480px;">Мире 12 лет.</p>
-      <p style="font-family: 'Lora', serif; font-style: italic; font-size: 24px; line-height: 1.55; color: var(--ink); margin-top: 14px; max-width: 480px;">Последнее время я начал замечать мелочи. Чуть меньше гуляет. Чуть больше спит.</p>
-      <p style="font-family: 'Lora', serif; font-style: italic; font-size: 24px; line-height: 1.55; color: var(--ink); margin-top: 14px; max-width: 480px;">И каждый раз одна мысль: это возраст или что-то изменилось?</p>
-      <p style="font-family: 'Lora', serif; font-style: italic; font-size: 24px; line-height: 1.55; color: var(--ink); margin-top: 14px; max-width: 480px;">Она не скажет.</p>
-      <p style="font-family: 'Lora', serif; font-style: italic; font-size: 24px; line-height: 1.55; color: var(--sage-deep); margin-top: 14px; max-width: 480px; font-weight: 500;">Поэтому я строю Norma.</p>
+      <div class="founder-story">
+        <p class="fs-line">Мире 12 лет.</p>
+        <p class="fs-line">Последнее время я начал замечать мелочи. Чуть меньше гуляет. Чуть больше спит.</p>
+        <p class="fs-line">И каждый раз одна мысль: это возраст или что-то изменилось?</p>
+        <p class="fs-line">Она не скажет.</p>
+        <p class="fs-line fs-emph">Поэтому я строю Norma.</p>
+      </div>
       <div class="signature">
         — Денис
         <span>основатель Norma</span>
@@ -1338,7 +1360,7 @@
       <p style="font-size: 18px; line-height: 1.55; color: var(--muted); margin-top: 20px; max-width: 480px;">Всё, что нужно — один ошейник. Без проводов, настроек и зарядных станций. Надел — и он работает.</p>
       <ul class="device-specs">
         <li>
-          <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6l3 4 3-4-3-4z"/><path d="M21 6l-3-4-3 4 3 4 3-4z"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="6" y1="6" x2="18" y2="6"/><path d="M6 6c0 2 1.5 4 6 4s6-2 6-4"/></svg></span>
+          <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg></span>
           <div><div class="k">35 грамм</div><div class="v">кошка от 3 кг не замечает — не трёт лапой и не пытается снять</div></div>
         </li>
         <li>
@@ -1441,22 +1463,30 @@
         </div>
         <div class="stat">
           <span class="big">8 200</span>
-          <span class="delta">шагов / день</span>
+          <span class="delta">шагов / день — для всех</span>
         </div>
         <svg class="chart" viewBox="0 0 400 160" preserveAspectRatio="none">
           <g stroke="#EAE4D8" stroke-dasharray="2 5">
-            <line x1="0" y1="32" x2="400" y2="32"/>
-            <line x1="0" y1="68" x2="400" y2="68"/>
-            <line x1="0" y1="104" x2="400" y2="104"/>
-            <line x1="0" y1="140" x2="400" y2="140"/>
+            <line x1="0" y1="40" x2="400" y2="40"/>
+            <line x1="0" y1="80" x2="400" y2="80"/>
+            <line x1="0" y1="120" x2="400" y2="120"/>
           </g>
-          <line x1="10" y1="80" x2="390" y2="80" stroke="#9A9A95" stroke-width="2.5"/>
-          <text x="10" y="72" font-family="JetBrains Mono" font-size="10" fill="#9A9A95">«норма» для всех</text>
+          <path d="M10,55 C40,52 70,60 100,58 C130,55 160,62 190,60 C220,58 250,55 280,60 C310,65 340,58 370,62 L390,60"
+            fill="none" stroke="#BFB7A7" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.7"/>
+          <path d="M10,90 C40,95 70,88 100,92 C130,96 160,90 190,94 C220,98 250,90 280,92 C310,94 340,88 370,90 L390,92"
+            fill="none" stroke="#BFB7A7" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.5"/>
+          <path d="M10,75 C40,70 70,82 100,78 C130,73 160,80 190,76 C220,72 250,82 280,78 C310,74 340,80 370,76 L390,78"
+            fill="none" stroke="#BFB7A7" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6"/>
+          <line x1="10" y1="80" x2="390" y2="80" stroke="#7A7A75" stroke-width="2.5"/>
+          <circle cx="10" cy="80" r="3" fill="#7A7A75"/>
+          <circle cx="390" cy="80" r="3" fill="#7A7A75"/>
+          <text x="10" y="22" font-family="JetBrains Mono" font-size="10" fill="#7A7A75">одна цифра для всех</text>
         </svg>
         <div class="legend">
-          <span><i style="background:#9A9A95"></i>порода</span>
+          <span><i style="background:#7A7A75"></i>усреднённая «норма»</span>
+          <span><i style="background:#BFB7A7"></i>реальные питомцы</span>
         </div>
-        <div class="empty">— нет персонализации —</div>
+        <div class="empty">Барсик и пёс соседа — одинаковые?</div>
       </div>
       <div class="mock-screen right">
         <div class="mhead">
