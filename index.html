@@ -255,6 +255,8 @@
 
   /* === DEVICE SECTION === */
   .device .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  /* Mirror layout: text on LEFT, photo on RIGHT */
+  .device .device-grid .device-photo { order: 2; }
   .device-photo {
     aspect-ratio: 1/1; border-radius: 24px; position: relative; overflow: hidden;
     background: radial-gradient(ellipse at center, #F4F1EA 0%, #E5DDD0 100%);
@@ -988,6 +990,7 @@
   @media (max-width: 900px) {
     .section { padding: 80px 0; }
     .hero .grid, .founder .grid, .device .grid, .founder-grid { grid-template-columns: 1fr; gap: 48px; }
+    .device .device-grid .device-photo { order: 0; }
     .problem-grid, .feat-grid, .steps, .app-mock, .stories, .compete-grid { grid-template-columns: 1fr; gap: 16px; }
     .step + .step { border-left: 0; border-top: 1px solid var(--line); }
     .compare { grid-template-columns: 1fr; padding: 28px; }
@@ -1324,8 +1327,8 @@
 </section>
 
 <!-- SECTION 4: THE DEVICE -->
-<section class="section warm device reveal" id="device">
-  <div class="container grid">
+<section class="section device reveal" id="device">
+  <div class="container grid device-grid">
     <div class="device-photo">
       <svg class="collar-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
         <defs>
