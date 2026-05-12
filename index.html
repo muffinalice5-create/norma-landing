@@ -216,7 +216,11 @@
 
   .hero-card-1 { top: 6%; left: -8%; width: 260px; }
   .hero-card-2 { bottom: 10%; right: -6%; width: 230px; }
-  .hero-card-3 { top: 42%; right: -10%; width: 280px; box-shadow: 0 24px 60px -20px rgba(86, 64, 36, 0.28); }
+  .hero-card-3 { top: 38%; right: -12%; width: 320px; box-shadow: 0 30px 70px -22px rgba(86, 64, 36, 0.32); }
+  .hero-card-3 .h-line { font-size: 15px; font-weight: 600; }
+  .hero-card-3 .meta { font-size: 13px; }
+  .hero-card-3 .cta-line { font-size: 13px; }
+  .hero-card-3 .row1 .title { font-size: 14px; }
 
   /* app push notification card */
   .push-card {
@@ -513,6 +517,46 @@
     text-wrap: balance;
   }
   .pnorm .giant em { font-family: 'Lora', serif; font-style: italic; font-weight: 500; color: var(--sage-deep); }
+
+  /* === GIANT APPLE-STYLE STATEMENT === */
+  .giant-statement {
+    padding: 180px 0;
+    text-align: center;
+    background: linear-gradient(180deg, #fff 0%, var(--bg-warm) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .giant-statement::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      radial-gradient(rgba(120, 90, 50, 0.04) 1px, transparent 1.4px);
+    background-size: 9px 9px;
+    opacity: 0.6;
+  }
+  .giant-statement .container { position: relative; z-index: 1; }
+  .apple-giant {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(56px, 11vw, 160px);
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+    font-weight: 700;
+    margin: 40px 0 32px;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .apple-giant em {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--sage-deep);
+  }
+  .apple-sub {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: clamp(24px, 3vw, 36px);
+    color: var(--muted);
+    font-weight: 400;
+  }
   .pnorm .head { text-align: center; margin: 80px 0 56px; }
   .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; }
   .step { padding: 36px 28px; position: relative; }
@@ -623,6 +667,56 @@
     position: absolute; top: 24px; left: 32px;
   }
 
+  /* === COMPETITIVE === */
+  .competitive { background: #fff; }
+  .compete-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    max-width: 1080px; margin: 0 auto;
+  }
+  .compete-col {
+    background: #fff; border-radius: 24px; padding: 40px 36px;
+    border: 1px solid var(--line);
+  }
+  .compete-col.compete-other {
+    background: var(--bg-warm);
+    border-color: var(--line-warm);
+  }
+  .compete-col.compete-us {
+    background: linear-gradient(180deg, #fff 0%, #F4F8F5 100%);
+    border-color: rgba(124,154,130,0.4);
+    box-shadow: 0 20px 50px -22px rgba(86, 64, 36, 0.14);
+    position: relative;
+  }
+  .compete-col.compete-us::after {
+    content: "Это мы"; position: absolute; top: 20px; right: 24px;
+    background: var(--sage); color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 6px 12px; border-radius: 999px;
+  }
+  .compete-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 24px;
+  }
+  .compete-us .compete-label { color: var(--sage-deep); }
+  .compete-col ul { list-style: none; padding: 0; margin: 0; }
+  .compete-col li {
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 14px 0; border-bottom: 1px solid var(--line);
+    font-size: 15px; line-height: 1.5; color: var(--ink-2);
+  }
+  .compete-col li:last-child { border-bottom: 0; }
+  .compete-col li .x, .compete-col li .v {
+    width: 22px; height: 22px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 12px; font-weight: 700;
+    margin-top: 1px;
+  }
+  .compete-col li .x { background: #E8E2D6; color: var(--muted-2); }
+  .compete-col li .v { background: var(--sage); color: #fff; }
+  .compete-other li { color: var(--muted); }
+
   /* === GPS / OBJECTIONS === */
   .objections .head { max-width: 800px; margin-bottom: 56px; }
   .obj-table { border-top: 1px solid var(--line); }
@@ -670,6 +764,26 @@
   .counter-card .counter-text { font-size: 15px; color: var(--ink-2); }
   .counter-card .counter-text b { font-family: 'DM Sans'; font-size: 17px; }
 
+  .progress-wrap {
+    margin: 56px auto 0; max-width: 540px;
+    background: #fff; border: 1px solid var(--line); border-radius: 20px;
+    padding: 24px 28px;
+    box-shadow: var(--shadow-soft);
+  }
+  .progress-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px; }
+  .progress-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .progress-count { font-family: 'DM Sans', sans-serif; font-size: 15px; color: var(--ink-2); }
+  .progress-count b { font-size: 22px; font-weight: 700; color: var(--sage-deep); letter-spacing: -0.02em; }
+  .progress-bar { height: 8px; background: var(--bg-warm-2); border-radius: 999px; overflow: hidden; }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--sage), var(--sage-deep));
+    border-radius: 999px;
+    transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .progress-foot { margin-top: 12px; font-size: 13px; color: var(--muted); }
+  .progress-foot b { color: var(--sage-deep); font-weight: 600; }
+
   /* === FAQ === */
   .faq .head { max-width: 720px; margin-bottom: 40px; }
   details.q {
@@ -697,6 +811,38 @@
   details.q .a {
     padding: 16px 0 0;
     font-size: 17px; color: var(--muted); line-height: 1.6; max-width: 800px;
+  }
+
+  /* === EMOTIONAL PUNCH === */
+  .emotional-punch {
+    padding: 140px 0;
+    background: var(--bg-warm);
+    text-align: center;
+    position: relative;
+  }
+  .emotional-punch::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.5;
+    background-image: radial-gradient(rgba(120, 90, 50, 0.05) 1px, transparent 1.4px);
+    background-size: 7px 7px;
+    mix-blend-mode: multiply;
+  }
+  .emotional-punch .container { position: relative; z-index: 1; }
+  .punch-h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(34px, 4.5vw, 56px);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    font-weight: 700;
+    text-wrap: balance;
+    margin-bottom: 32px;
+  }
+  .punch-p {
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 640px;
+    margin: 0 auto;
   }
 
   /* === CLOSING CTA === */
@@ -749,10 +895,80 @@
   }
   footer .legal { max-width: 640px; line-height: 1.5; }
 
+  /* === ANIMATIONS === */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideInRight {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* Hero — staggered fade-up on load */
+  .hero .icp-line { animation: fadeUp 0.7s ease-out 0.1s both; }
+  .hero h1 { animation: fadeUp 0.8s ease-out 0.2s both; }
+  .hero .sub { animation: fadeUp 0.8s ease-out 0.4s both; }
+  .hero .ctas { animation: fadeUp 0.8s ease-out 0.55s both; }
+  .hero .micro { animation: fadeUp 0.8s ease-out 0.7s both; }
+  .hero-visual-wrap { animation: fadeIn 1s ease-out 0.3s both; }
+  .hero-card-1 { animation: fadeUp 0.7s ease-out 0.9s both, float 5s ease-in-out 1.6s infinite; }
+  .hero-card-2 { animation: fadeUp 0.7s ease-out 1.1s both, float 6s ease-in-out 1.8s infinite; }
+  .hero-card-3 { animation: slideInRight 0.7s ease-out 1.0s both, float 7s ease-in-out 1.7s infinite; }
+
+  /* Trust bar shimmer */
+  .trustbar { animation: fadeIn 0.6s ease-out both; }
+
+  /* Reveal on scroll — base state */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease-out, transform 0.75s ease-out; }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .reveal-stagger > * { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+  .reveal-stagger.is-visible > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.05s; }
+  .reveal-stagger.is-visible > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.15s; }
+  .reveal-stagger.is-visible > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.25s; }
+  .reveal-stagger.is-visible > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.35s; }
+  .reveal-stagger.is-visible > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.45s; }
+  .reveal-stagger.is-visible > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.55s; }
+
+  /* Buttons subtle hover */
+  .btn { transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease; }
+  .btn:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 12px 28px -10px rgba(86, 64, 36, 0.35); }
+  .ghost-btn { transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .ghost-btn:hover { transform: translateY(-1px); }
+  .email-form button { transition: transform 0.15s, box-shadow 0.2s; }
+  .email-form button:hover { transform: translateY(-1px) scale(1.03); box-shadow: 0 8px 24px -8px rgba(0,0,0,0.25); }
+
+  /* Apple-giant subtle entrance */
+  .giant-statement.is-visible .apple-giant { animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .giant-statement.is-visible .apple-sub { animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both; }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    .reveal, .reveal-stagger > * { opacity: 1 !important; transform: none !important; }
+  }
+
+  /* === RESPONSIVE === */
   @media (max-width: 900px) {
     .section { padding: 80px 0; }
     .hero .grid, .founder .grid, .device .grid { grid-template-columns: 1fr; gap: 48px; }
-    .problem-grid, .feat-grid, .steps, .app-mock, .stories { grid-template-columns: 1fr; }
+    .problem-grid, .feat-grid, .steps, .app-mock, .stories, .compete-grid { grid-template-columns: 1fr; gap: 16px; }
     .step + .step { border-left: 0; border-top: 1px solid var(--line); }
     .compare { grid-template-columns: 1fr; padding: 28px; }
     .compare .caption, .app-mock .caption { grid-column: span 1; }
@@ -762,7 +978,137 @@
     .hero-card-1 { left: 4%; top: 4%; width: 220px; }
     .hero-card-2 { right: 4%; bottom: 4%; width: 200px; }
     .hero-card-3 { display: none; }
+    .giant-statement { padding: 100px 0; }
+    .emotional-punch { padding: 100px 0; }
   }
+
+  @media (max-width: 600px) {
+    body { line-height: 1.5; }
+    .container { padding: 0 20px; }
+    .section { padding: 64px 0; }
+
+    /* Trust bar — hide third item */
+    .trustbar { height: auto; padding: 10px 14px; font-size: 12px; }
+    .trustbar > span:nth-child(4), .trustbar > span:nth-child(5) { display: none; }
+    .trustbar .dot { margin: 0 10px; }
+
+    /* Nav — compact */
+    nav.top .row { height: 60px; }
+    nav.top .btn { padding: 10px 14px; font-size: 12px; }
+    nav.top .btn .arr { display: none; }
+    .logo { font-size: 19px; }
+
+    /* Hero */
+    .hero { padding: 40px 0 60px; }
+    .hero .grid { gap: 32px; }
+    .hero h1 { font-size: clamp(32px, 9vw, 42px); line-height: 1.05; }
+    .hero .sub { font-size: 16px; margin-top: 18px; }
+    .hero .ctas { flex-direction: column; align-items: stretch; gap: 14px; margin-top: 28px; }
+    .hero .ctas .btn { width: 100%; justify-content: center; }
+    .hero .ctas .secondary-link { text-align: center; }
+    .hero .micro { font-size: 12px; }
+    .icp-line { font-size: 12px; margin-bottom: 12px; }
+
+    /* Hero visual — simplified on mobile */
+    .hero-visual-wrap { aspect-ratio: auto; }
+    .hero-visual { aspect-ratio: 4/3; }
+    .hero-card-1, .hero-card-2 { display: none; }
+    .hero-card-3 {
+      position: static; width: 100%; margin-top: 16px;
+      animation: fadeUp 0.7s ease-out 0.5s both;
+      box-shadow: var(--shadow-soft);
+    }
+
+    /* Problem cards */
+    .problem-card { padding: 24px 20px; }
+    .problem-card h3 { font-size: 19px; }
+
+    /* Device — single col, smaller specs */
+    .device-specs li { grid-template-columns: 32px 1fr; gap: 12px; padding: 14px 0; }
+    .device-specs .k { font-size: 16px; }
+    .device-specs .v { font-size: 13px; }
+    .device-photo { aspect-ratio: 1/1; }
+
+    /* Personal Norm */
+    .apple-giant { font-size: clamp(44px, 13vw, 80px); }
+    .apple-sub { font-size: 20px; }
+    .step { padding: 24px 0; }
+    .app-mock { padding: 18px; margin-top: 48px; }
+    .mock-screen { padding: 16px; }
+    .mock-screen .stat .big { font-size: 28px; }
+
+    /* Features */
+    .feat { padding: 28px 22px; }
+    .feat h3 { font-size: 17px; }
+    .feat p { font-size: 14px; }
+    .feat-badge { font-size: 11px; padding: 6px 12px; }
+
+    /* Stories */
+    .story { padding: 28px 22px; }
+    .story blockquote { font-size: 17px; }
+
+    /* Competitive */
+    .compete-col { padding: 28px 22px; }
+    .compete-col.compete-us::after { top: 16px; right: 16px; font-size: 9px; padding: 4px 10px; }
+    .compete-col li { font-size: 14px; padding: 12px 0; }
+
+    /* Objections */
+    .obj-row { padding: 22px 0; }
+    .obj-row .k { font-size: 18px; }
+    .obj-row .v { font-size: 15px; }
+
+    /* Early Access */
+    .early h2 { font-size: 28px; }
+    .early .lead { font-size: 16px; margin: 18px auto 28px; }
+    .benefits li { font-size: 15px; padding: 12px 0; }
+    .progress-wrap { padding: 18px 20px; margin-top: 36px; }
+    .progress-count b { font-size: 18px; }
+
+    /* FAQ */
+    details.q summary { font-size: 17px; }
+    details.q .a { font-size: 15px; }
+
+    /* Emotional Punch */
+    .emotional-punch { padding: 72px 0; }
+    .punch-h2 { font-size: clamp(28px, 7vw, 38px); margin-bottom: 22px; }
+    .punch-p { font-size: 16px; }
+
+    /* Closing */
+    .closing { padding: 80px 0; }
+    .closing-wrap { gap: 36px; }
+    .phone-mock { width: 240px; height: 480px; }
+    .closing h2 { font-size: clamp(26px, 6.5vw, 36px); }
+    .closing p { font-size: 16px; margin: 18px auto 28px; }
+    .email-form { flex-direction: column; padding: 8px; gap: 6px; border-radius: 18px; align-items: stretch; }
+    .email-form input { padding: 14px 16px; text-align: center; }
+    .email-form button { width: 100%; padding: 14px; }
+    .closing-meta { gap: 10px; margin-top: 14px; }
+    .closing-micro { font-size: 12px; text-align: center; padding: 0 12px; }
+    .thank-you { padding: 24px 18px; }
+    .thank-you h3 { font-size: 22px; }
+
+    /* Footer */
+    footer { padding: 56px 0 28px; }
+    footer .row1 { grid-template-columns: 1fr; gap: 28px; }
+    footer .links { justify-content: flex-start; }
+    footer .row2 { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+    /* Sticky mobile CTA */
+    .sticky-cta {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid var(--line);
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+      display: flex; gap: 10px; align-items: center;
+      transform: translateY(100%); transition: transform 0.3s ease;
+    }
+    .sticky-cta.is-visible { transform: translateY(0); }
+    .sticky-cta .sticky-text { font-size: 11px; color: var(--muted); flex: 1; line-height: 1.3; }
+    .sticky-cta .btn { padding: 11px 16px; font-size: 13px; flex-shrink: 0; }
+  }
+  @media (min-width: 601px) { .sticky-cta { display: none; } }
   .closing-text { max-width: 640px; }
   .closing-form-wrap { margin-top: 8px; }
   .closing-meta { display: flex; flex-direction: column; align-items: center; gap: 14px; margin-top: 18px; }
@@ -892,7 +1238,7 @@
       <span class="eyebrow">Проблема</span>
       <h2 style="margin-top:20px;">Почему это сложно заметить самому</h2>
     </div>
-    <div class="problem-grid">
+    <div class="problem-grid reveal-stagger">
       <div class="problem-card">
         <div class="icon">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -935,7 +1281,7 @@
 </section>
 
 <!-- SECTION 3: FOUNDER -->
-<section class="section warm founder" id="story">
+<section class="section warm founder reveal" id="story">
   <div class="container grid" style="grid-template-columns: 1.15fr 1fr;">
     <div class="founder-photo" style="aspect-ratio: 5/6;">
       <span class="tag">[фото] кандидное · Денис и Мира · тёплый свет, домашняя обстановка</span>
@@ -956,7 +1302,7 @@
 </section>
 
 <!-- SECTION 4: THE DEVICE -->
-<section class="section warm device" id="device">
+<section class="section warm device reveal" id="device">
   <div class="container grid">
     <div class="device-photo">
       <svg class="collar-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
@@ -991,12 +1337,30 @@
       <h2 style="margin-top:20px;">Ошейник Norma</h2>
       <p style="font-size: 18px; line-height: 1.55; color: var(--muted); margin-top: 20px; max-width: 480px;">Всё, что нужно — один ошейник. Без проводов, настроек и зарядных станций. Надел — и он работает.</p>
       <ul class="device-specs">
-        <li><span class="ico">⚖️</span><div><div class="k">35 грамм</div><div class="v">питомец не замечает</div></div></li>
-        <li><span class="ico">💧</span><div><div class="k">Не боится воды</div><div class="v">дождь, снег, лужи</div></div></li>
-        <li><span class="ico">📡</span><div><div class="k">Точное местоположение</div><div class="v">даже во дворах</div></div></li>
-        <li><span class="ico">📶</span><div><div class="k">Работает сразу</div><div class="v">ничего не надо настраивать</div></div></li>
-        <li><span class="ico">🔋</span><div><div class="k">Зарядка раз в неделю</div><div class="v">магнитная, за 2 часа</div></div></li>
-        <li><span class="ico">📱</span><div><div class="k">Надел → включил → работает</div><div class="v">QR-код → приложение → онлайн</div></div></li>
+        <li>
+          <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6l3 4 3-4-3-4z"/><path d="M21 6l-3-4-3 4 3 4 3-4z"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="6" y1="6" x2="18" y2="6"/><path d="M6 6c0 2 1.5 4 6 4s6-2 6-4"/></svg></span>
+          <div><div class="k">35 грамм</div><div class="v">кошка от 3 кг не замечает — не трёт лапой и не пытается снять</div></div>
+        </li>
+        <li>
+          <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></span>
+          <div><div class="k">Не боится воды</div><div class="v">гуляете под дождём и по сугробам — не нужно снимать перед каждой прогулкой</div></div>
+        </li>
+        <li>
+          <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div><div class="k">Точное местоположение</div><div class="v">находите даже в дворах с высокими домами — GPS + ГЛОНАСС + сотовая сеть</div></div>
+        </li>
+        <li>
+          <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></span>
+          <div><div class="k">Работает сразу</div><div class="v">SIM встроена · не настраиваете, не возитесь с приложением</div></div>
+        </li>
+        <li>
+          <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="18" height="10" rx="2"/><line x1="22" y1="11" x2="22" y2="13"/><path d="M6 11l2 2 4-4"/></svg></span>
+          <div><div class="k">Зарядка раз в неделю</div><div class="v">магнитная, за 2 часа — не превращается в ещё одну ежедневную обязанность</div></div>
+        </li>
+        <li>
+          <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
+          <div><div class="k">Надел → включил → работает</div><div class="v">QR-код → приложение → онлайн за 2 минуты. Никаких настроек</div></div>
+        </li>
       </ul>
       <p class="device-foot">Подходит для кошек от 3 кг и собак любого размера. Надевается как обычный ошейник. Питомец не замечает разницы.</p>
     </div>
@@ -1004,13 +1368,19 @@
 </section>
 
 <!-- SECTION 5: PERSONAL NORM -->
+<section class="giant-statement reveal">
+  <div class="container">
+    <span class="eyebrow" style="color: var(--sage-deep); justify-content: center; display: inline-flex;">Ключевая идея</span>
+    <h2 class="apple-giant">
+      Средняя собака<br>
+      <em>не существует</em>.
+    </h2>
+    <p class="apple-sub">Есть только ваша.</p>
+  </div>
+</section>
+
 <section class="section pnorm" id="how">
   <div class="container">
-    <div style="text-align:center; margin-bottom: 32px;">
-      <span class="eyebrow">Ключевая идея</span>
-    </div>
-    <p class="giant">Средняя собака <em>не существует</em>. Есть только ваша.</p>
-
     <div class="head">
       <h2>Как работает Личная Норма</h2>
     </div>
@@ -1026,7 +1396,7 @@
         <span style="color:var(--sage);">✓</span> Сигнал — только когда отклонение повторяется
       </div>
     </div>
-    <div class="steps">
+    <div class="steps reveal-stagger">
       <div class="step">
         <div class="num">01 · Дни 1–14</div>
         <div class="icon">
@@ -1137,7 +1507,7 @@
       <span class="eyebrow">Возможности</span>
       <h2 style="margin-top:20px;">Что Norma замечает каждый день</h2>
     </div>
-    <div class="feat-grid">
+    <div class="feat-grid reveal-stagger">
       <div class="feat feat-hero">
         <div class="num">01 · ключевое</div>
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -1145,6 +1515,7 @@
         </svg>
         <h3>Сигналы Личной Нормы</h3>
         <p>Персональные уведомления при значимых отклонениях от привычного поведения.</p>
+        <p style="color:var(--sage-deep); font-size:14px; margin-top:10px; font-weight:500;">→ Записываетесь к врачу до обострения, а не после</p>
         <div class="feat-notif">
           <span class="d"></span>
           <span><strong>Сон:</strong> −40 мин от нормы · 5 дней подряд</span>
@@ -1157,6 +1528,7 @@
         </svg>
         <h3>Качество сна</h3>
         <p>Продолжительность, пробуждения, тревожность ночью.</p>
+        <p style="color:var(--sage-deep); font-size:14px; margin-top:10px; font-weight:500;">→ Видите, когда питомец спит хуже обычного — даже если днём выглядит нормально</p>
       </div>
       <div class="feat">
         <div class="num">03</div>
@@ -1165,6 +1537,7 @@
         </svg>
         <h3>GPS и геозоны</h3>
         <p>Знаете, где питомец. Сигнал, если ушёл дальше обычного.</p>
+        <p style="color:var(--sage-deep); font-size:14px; margin-top:10px; font-weight:500;">→ Спокойно отпускаете гулять — телефон предупредит сам</p>
       </div>
       <div class="feat">
         <div class="num">04</div>
@@ -1173,6 +1546,7 @@
         </svg>
         <h3>Активность</h3>
         <p>Шаги, прогулки, калории — день, неделя, месяц.</p>
+        <p style="color:var(--sage-deep); font-size:14px; margin-top:10px; font-weight:500;">→ Замечаете тренды раньше, чем они становятся видны глазу</p>
       </div>
       <div class="feat">
         <div class="num">05</div>
@@ -1181,6 +1555,7 @@
         </svg>
         <h3>Еженедельный отчёт</h3>
         <p>Тренды и данные, которые можно показать ветеринару.</p>
+        <p style="color:var(--sage-deep); font-size:14px; margin-top:10px; font-weight:500;">→ На приёме не "мне кажется", а реальные цифры за месяц</p>
       </div>
       <div class="feat">
         <div class="num">06</div>
@@ -1190,6 +1565,7 @@
         </svg>
         <h3>Семейный доступ</h3>
         <p>Вся семья видит питомца в одном приложении.</p>
+        <p style="color:var(--sage-deep); font-size:14px; margin-top:10px; font-weight:500;">→ Не нужно по сто раз спрашивать "как там Барсик"</p>
       </div>
     </div>
 
@@ -1200,31 +1576,70 @@
 </section>
 
 <!-- SECTION 7: SOCIAL PROOF -->
-<section class="section warm">
+<section class="section warm reveal">
   <div class="container">
     <div style="text-align:center;">
-      <span class="eyebrow">Мотивация</span>
-      <h2 style="margin-top: 20px;">Истории, которые нас мотивируют</h2>
-      <p style="margin-top: 16px; font-size: 17px; line-height: 1.55; color: var(--muted); max-width: 560px; margin-left: auto; margin-right: auto;">Мы провели десятки интервью с владельцами. Вот что нас зацепило.</p>
+      <span class="eyebrow">Из интервью с владельцами</span>
+      <h2 style="margin-top: 20px;">Истории, после которых мы начали строить Norma</h2>
+      <p style="margin-top: 16px; font-size: 17px; line-height: 1.55; color: var(--muted); max-width: 560px; margin-left: auto; margin-right: auto;">То, что владельцы вспоминают с чувством вины. Мы не хотим, чтобы их стало больше.</p>
     </div>
-    <div class="stories">
+    <div class="stories reveal-stagger">
       <div class="story">
-        <div class="preamble">От владелицы мопса</div>
+        <div class="preamble">От владелицы мопса · Москва</div>
         <blockquote>«Встретили пожилую мопсочку, у которой в последний момент обнаружили воспаление. Вот что страшно — животные слабо показывают, что что-то не то.»</blockquote>
-        <div class="who"><span>Владелица мопса</span><span class="city">Москва</span></div>
+        <div style="margin-top: 22px; padding: 14px 16px; background: var(--sage-tint); border-radius: 12px; border-left: 3px solid var(--sage);">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--sage-deep); margin-bottom:6px;">Как бы сработала Norma</div>
+          <div style="font-size:14px; color:var(--ink-2); line-height:1.5;">Зафиксировала бы снижение активности и тревожный сон за <strong>5–7 дней</strong> до того, как симптомы стали видны глазу.</div>
+        </div>
       </div>
       <div class="story">
-        <div class="preamble">От владелицы кота</div>
+        <div class="preamble">От владелицы кота · Санкт-Петербург</div>
         <blockquote>«Кот перестал выходить на вечернюю прогулку во двор. Я думала — просто погода. Через неделю ветеринар нашёл начало мочекаменной.»</blockquote>
-        <div class="who"><span>Владелица кота</span><span class="city">Санкт-Петербург</span></div>
+        <div style="margin-top: 22px; padding: 14px 16px; background: var(--sage-tint); border-radius: 12px; border-left: 3px solid var(--sage);">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--sage-deep); margin-bottom:6px;">Как бы сработала Norma</div>
+          <div style="font-size:14px; color:var(--ink-2); line-height:1.5;">Заметила бы изменение прогулочного паттерна на <strong>3-й день</strong> — не на седьмой.</div>
+        </div>
       </div>
     </div>
-    <p class="social-closer">Если бы у этих питомцев был Norma — сигнал пришёл бы раньше.</p>
+    <p class="social-closer">Norma не ставит диагноз. Она даёт шанс заметить раньше.</p>
+  </div>
+</section>
+
+<!-- SECTION: COMPETITIVE -->
+<section class="section competitive reveal">
+  <div class="container">
+    <div class="head" style="text-align:center; margin-bottom: 56px;">
+      <span class="eyebrow" style="justify-content:center; display:inline-flex;">Отличие от других</span>
+      <h2 style="margin-top:20px;">Чем Norma отличается от обычных GPS-ошейников</h2>
+      <p style="margin-top: 20px; font-size: 17px; color: var(--muted); max-width: 640px; margin-left: auto; margin-right: auto;">GPS, активность и геозоны сегодня умеет каждый трекер. Наш фокус — другой.</p>
+    </div>
+    <div class="compete-grid reveal-stagger">
+      <div class="compete-col compete-other">
+        <div class="compete-label">Обычный GPS-ошейник</div>
+        <ul>
+          <li><span class="x">✕</span> Сравнивает с "нормой породы"</li>
+          <li><span class="x">✕</span> Фокус: найти, когда уже потерялся</li>
+          <li><span class="x">✕</span> Активность как цифра — без интерпретации</li>
+          <li><span class="x">✕</span> Сигнал, когда отклонение очевидное</li>
+          <li><span class="x">✕</span> Вы реагируете постфактум</li>
+        </ul>
+      </div>
+      <div class="compete-col compete-us">
+        <div class="compete-label">Norma</div>
+        <ul>
+          <li><span class="v">✓</span> Учит <strong>Личную Норму</strong> именно вашего питомца</li>
+          <li><span class="v">✓</span> Фокус: заметить, что с ним что-то не так ещё <strong>дома</strong></li>
+          <li><span class="v">✓</span> Поведенческие сигналы — <strong>что это значит</strong></li>
+          <li><span class="v">✓</span> Сигнал, когда отклонение <strong>повторяется</strong></li>
+          <li><span class="v">✓</span> Вы реагируете <strong>раньше</strong></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- SECTION 7: GPS / OBJECTIONS -->
-<section class="section objections">
+<section class="section objections reveal">
   <div class="container">
     <div class="head">
       <span class="eyebrow">Технология</span>
@@ -1256,7 +1671,7 @@
 </section>
 
 <!-- SECTION 9: EARLY ACCESS -->
-<section class="section warm early" id="early">
+<section class="section warm early reveal" id="early">
   <div class="container">
     <span class="eyebrow">Ранний доступ</span>
     <h2 style="margin-top:20px;">Почему попасть сейчас?</h2>
@@ -1268,17 +1683,19 @@
       <li><span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Ранний доступ к тестированию</li>
     </ul>
     <a class="btn sage lg" href="#closing">Получить место в первых 100 <span class="arr">→</span></a>
-    <div class="counter-card">
-      <div class="avatars">
-        <div class="av"></div><div class="av"></div><div class="av"></div><div class="av"></div>
+    <div class="progress-wrap">
+      <div class="progress-head">
+        <span class="progress-label">Занято мест в раннем доступе</span>
+        <span class="progress-count"><b>47</b> из 100</span>
       </div>
-      <div class="counter-text">Уже <b>47</b> человек в списке</div>
+      <div class="progress-bar"><div class="progress-fill" style="width: 47%;"></div></div>
+      <div class="progress-foot">Осталось <b>53</b> места · следующие 53 человека закроют первую сотню</div>
     </div>
   </div>
 </section>
 
 <!-- SECTION 9: FAQ -->
-<section class="section faq" id="faq">
+<section class="section faq reveal" id="faq">
   <div class="container">
     <div class="head">
       <span class="eyebrow">Вопросы</span>
@@ -1286,29 +1703,46 @@
     </div>
     <details class="q">
       <summary>Сколько стоит Norma? <span class="plus">+</span></summary>
-      <div class="a">Ориентир: ошейник до 5 000 ₽, подписка от 499 ₽/мес. Первые 100 владельцев получат спецусловия — оставьте email, чтобы узнать первым.</div>
+      <div class="a">Финальная цена будет объявлена ближе к запуску. Ориентир: ошейник до 5 000 ₽, подписка от 499 ₽/мес. Участники раннего доступа получат условия лучше, чем в открытой продаже — оставьте email, чтобы узнать первыми. Без оплаты сейчас.</div>
     </details>
     <details class="q">
-      <summary>Как долго Norma «учит» питомца? <span class="plus">+</span></summary>
-      <div class="a">14 дней до первых инсайтов. 42 дня до полной Личной Нормы.</div>
+      <summary>Что я получу, если запишусь сейчас? <span class="plus">+</span></summary>
+      <div class="a">Место в списке первых 100 владельцев. Одно письмо при запуске со спецусловиями. Приоритетный доступ к тестированию. Приглашение в закрытый Telegram-канал первых владельцев. Никаких звонков, подписок и списаний.</div>
     </details>
     <details class="q">
       <summary>Это замена ветеринару? <span class="plus">+</span></summary>
-      <div class="a">Нет. Norma — ранний сигнал, не диагноз. Помогает прийти к врачу с данными, а не с ощущениями.</div>
+      <div class="a">Нет. Norma — не медицинское устройство и не ставит диагнозы. Это ранний индикатор поведения, который помогает прийти к врачу с данными и наблюдениями, а не с ощущениями «он стал какой-то другой».</div>
+    </details>
+    <details class="q">
+      <summary>Как долго Norma «учит» питомца? <span class="plus">+</span></summary>
+      <div class="a">Первые инсайты — через 14 дней. Полная Личная Норма — через 42 дня. Этот срок нужен, чтобы алгоритм отличал характер вашего питомца от реального отклонения и не тревожил вас ложными сигналами.</div>
     </details>
     <details class="q">
       <summary>Подходит для кошек? <span class="plus">+</span></summary>
-      <div class="a">Да. 35 грамм — комфортно для кошек от 3 кг.</div>
+      <div class="a">Да. 35 грамм — комфортно для кошек от 3 кг. Подходит и для собак любого размера. Не натирает, не мешает спать.</div>
     </details>
     <details class="q">
       <summary>Нужно ли настраивать SIM? <span class="plus">+</span></summary>
-      <div class="a">Нет. SIM уже внутри. QR-код → приложение → онлайн за 2 минуты.</div>
+      <div class="a">Нет. SIM уже внутри. QR-код → приложение → онлайн за 2 минуты. Без кода активации, без танцев с оператором.</div>
+    </details>
+    <details class="q">
+      <summary>Почему вам можно доверять до запуска? <span class="plus">+</span></summary>
+      <div class="a">Мы команда из России. Параллельно с лендингом — тестируем железо: GPS-точность во дворах, автономность батареи, поведенческие алгоритмы. Прогресс показываем подписчикам Telegram. Никаких предзаказов с оплатой сейчас — только waitlist.</div>
     </details>
   </div>
 </section>
 
+<!-- SECTION: EMOTIONAL PUNCH -->
+<section class="emotional-punch reveal">
+  <div class="container">
+    <h2 class="punch-h2">Самое страшное —<br>понять слишком поздно.</h2>
+    <p class="punch-p">Мы не обещаем невозможного. Мы просто хотим, чтобы у владельцев появился шанс заметить изменения раньше.</p>
+    <p class="punch-p" style="margin-top: 12px;">Если у вас пожилой питомец — вы понимаете, почему это важно.</p>
+  </div>
+</section>
+
 <!-- SECTION 11: CLOSING CTA -->
-<section class="closing" id="closing">
+<section class="closing reveal" id="closing">
   <div class="container">
     <div class="closing-wrap">
       <div class="phone-mock">
@@ -1367,11 +1801,53 @@
       </div>
     </div>
     <div class="row2">
-      <div class="legal">Norma — не медицинское устройство. Не заменяет консультацию ветеринара.</div>
+      <div class="legal">Norma — не медицинское устройство и не ставит диагнозы. Это ранний индикатор поведения, который помогает вам вовремя обратиться к ветеринару. Финальное решение всегда за врачом.</div>
       <div>© 2026 Norma</div>
     </div>
   </div>
 </footer>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-text">47 из 100 мест заняты<br>осталось 53</div>
+  <a class="btn sage" href="#closing">Занять место →</a>
+</div>
+
+<script>
+  // Scroll reveal — IntersectionObserver
+  (function() {
+    const els = document.querySelectorAll('.reveal, .reveal-stagger');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    els.forEach(el => io.observe(el));
+  })();
+
+  // Sticky CTA — show after hero scrolled past
+  (function() {
+    const sticky = document.getElementById('stickyCta');
+    const hero = document.querySelector('.hero');
+    if (!sticky || !hero) return;
+    const onScroll = () => {
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      const closing = document.getElementById('closing');
+      const closingTop = closing ? closing.getBoundingClientRect().top : Infinity;
+      const show = heroBottom < 0 && closingTop > window.innerHeight;
+      sticky.classList.toggle('is-visible', show);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
 
 </body>
 </html>
