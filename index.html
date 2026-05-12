@@ -124,42 +124,20 @@
   .btn .arr { transition: transform 0.2s; }
   .btn:hover .arr { transform: translateX(3px); }
 
-  /* === HERO — cinematic full-width video === */
-  .hero {
-    position: relative; overflow: hidden;
-    min-height: 88vh; display: flex; align-items: center;
-    background: #1A1810;
-  }
-  .hero-bg-video {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover; z-index: 0;
-  }
-  .hero-overlay {
-    position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(
-      105deg,
-      rgba(12,9,5,0.92) 0%,
-      rgba(12,9,5,0.72) 36%,
-      rgba(12,9,5,0.28) 60%,
-      rgba(12,9,5,0.00) 78%
-    );
-  }
-  .hero .container { position: relative; z-index: 2; padding-top: 100px; padding-bottom: 100px; }
+  /* === HERO === */
+  .hero { padding: 80px 0 100px; position: relative; }
   .hero .grid {
     display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center;
   }
-  .hero h1 { color: #fff; }
-  .hero h1 .accent { color: var(--sage); font-style: italic; font-family: 'Lora', serif; font-weight: 500; }
+  .hero h1 .accent { color: var(--sage-deep); font-style: italic; font-family: 'Lora', serif; font-weight: 500; }
   .hero .sub {
-    margin-top: 28px; font-size: 19px; line-height: 1.55;
-    color: rgba(255,255,255,0.68); max-width: 540px;
+    margin-top: 28px; font-size: 19px; line-height: 1.55; color: var(--muted); max-width: 540px;
   }
   .hero .ctas {
     display: flex; align-items: center; gap: 24px; margin-top: 40px;
   }
   .hero .micro {
-    margin-top: 18px; font-size: 13px; color: rgba(255,255,255,0.50);
+    margin-top: 18px; font-size: 13px; color: var(--muted-2);
     display: inline-flex; align-items: center; gap: 8px;
   }
   .hero .micro .live {
@@ -167,22 +145,33 @@
     box-shadow: 0 0 0 0 rgba(124,154,130,0.55);
     animation: pulse 2.2s infinite;
   }
-  .hero .icp-line { color: rgba(255,255,255,0.62); }
   @keyframes pulse {
     0% { box-shadow: 0 0 0 0 rgba(124,154,130,0.6); }
     70% { box-shadow: 0 0 0 12px rgba(124,154,130,0); }
     100% { box-shadow: 0 0 0 0 rgba(124,154,130,0); }
   }
   .secondary-link {
-    font-size: 14px; color: rgba(255,255,255,0.80);
-    border-bottom: 1px dashed rgba(255,255,255,0.38);
+    font-size: 14px; color: var(--ink-2);
+    border-bottom: 1px dashed var(--muted-2);
     padding-bottom: 2px;
   }
 
-  /* Hero cards floating area (right column) */
-  .hero-cards-area {
+  /* Hero visual */
+  .hero-visual-wrap {
     position: relative;
-    height: 480px;
+    aspect-ratio: 4/4.4;
+  }
+  .hero-visual {
+    position: relative; width: 100%; height: 100%;
+    border-radius: 28px; overflow: hidden;
+    background: #1A1810;
+  }
+  /* Hero video */
+  .hero-video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .glass-card {
@@ -205,9 +194,9 @@
   .glass-card .desc { font-size: 13px; color: var(--ink-2); margin-top: 4px; }
   .glass-card .ampdot { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); display: inline-block; }
 
-  .hero-card-1 { top: 10%; left: -4%; width: 260px; }
-  .hero-card-2 { bottom: 4%; right: -4%; width: 230px; }
-  .hero-card-3 { top: 40%; right: -4%; width: 310px; box-shadow: 0 30px 70px -22px rgba(86, 64, 36, 0.32); }
+  .hero-card-1 { top: 6%; left: -8%; width: 260px; }
+  .hero-card-2 { bottom: 10%; right: -6%; width: 230px; }
+  .hero-card-3 { top: 38%; right: -12%; width: 320px; box-shadow: 0 30px 70px -22px rgba(86, 64, 36, 0.32); }
   .hero-card-3 .h-line { font-size: 15px; font-weight: 600; }
   .hero-card-3 .meta { font-size: 13px; }
   .hero-card-3 .cta-line { font-size: 13px; }
@@ -940,7 +929,7 @@
   .hero .sub { animation: fadeUp 0.8s ease-out 0.4s both; }
   .hero .ctas { animation: fadeUp 0.8s ease-out 0.55s both; }
   .hero .micro { animation: fadeUp 0.8s ease-out 0.7s both; }
-  .hero-cards-area { animation: fadeIn 1s ease-out 0.3s both; }
+  .hero-visual-wrap { animation: fadeIn 1s ease-out 0.3s both; }
   .hero-card-1 { animation: fadeUp 0.7s ease-out 0.9s both, float 5s ease-in-out 1.6s infinite; }
   .hero-card-2 { animation: fadeUp 0.7s ease-out 1.1s both, float 6s ease-in-out 1.8s infinite; }
   .hero-card-3 { animation: slideInRight 0.7s ease-out 1.0s both, float 7s ease-in-out 1.7s infinite; }
@@ -989,9 +978,8 @@
     .obj-row { grid-template-columns: 1fr; gap: 8px; }
     nav.top ul { display: none; }
     .quote-card { padding: 40px 28px; }
-    .hero-cards-area { height: 340px; }
-    .hero-card-1 { left: 0; top: 4%; width: 220px; }
-    .hero-card-2 { right: 0; bottom: 4%; width: 200px; }
+    .hero-card-1 { left: 4%; top: 4%; width: 220px; }
+    .hero-card-2 { right: 4%; bottom: 4%; width: 200px; }
     .hero-card-3 { display: none; }
     .giant-statement { padding: 100px 0; }
     .emotional-punch { padding: 100px 0; }
@@ -1024,10 +1012,15 @@
     .hero .micro { font-size: 12px; }
     .icp-line { font-size: 12px; margin-bottom: 12px; }
 
-    /* Hero — mobile: stack text then single card below */
-    .hero { min-height: 100svh; align-items: flex-end; }
-    .hero .container { padding-top: 60px; padding-bottom: 60px; }
-    .hero-cards-area { display: none; }
+    /* Hero visual — simplified on mobile */
+    .hero-visual-wrap { aspect-ratio: auto; }
+    .hero-visual { aspect-ratio: 4/3; }
+    .hero-card-1, .hero-card-2 { display: none; }
+    .hero-card-3 {
+      position: static; width: 100%; margin-top: 16px;
+      animation: fadeUp 0.7s ease-out 0.5s both;
+      box-shadow: var(--shadow-soft);
+    }
 
     /* Problem cards */
     .problem-card { padding: 24px 20px; }
@@ -1165,64 +1158,63 @@
 
 <!-- SECTION 1: HERO -->
 <section class="hero">
-  <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata">
-    <source src="hero.mp4" type="video/mp4">
-  </video>
-  <div class="hero-overlay"></div>
+  <div class="container grid">
+    <div>
+      <span class="icp-line">Для тех, кто замечает: «он стал какой-то другой»</span>
+      <h1>Они не скажут, что им плохо. Но их <span class="accent">поведение</span> — скажет.</h1>
+      <p class="sub">Norma — умный ошейник для кошек и собак. Запоминает, как ваш питомец двигается, спит и гуляет — и предупреждает, когда что-то меняется.</p>
+      <div class="ctas">
+        <a class="btn sage lg" href="#closing">Получить место в первых 100 <span class="arr">→</span></a>
+        <a class="secondary-link" href="#how">Как это работает ↓</a>
+      </div>
+      <div class="micro">
+        <span class="live"></span>
+        Уже 47 человек в списке · запуск осень 2026
+      </div>
+      <div style="margin-top:10px; font-size:12px; color:var(--muted-2); letter-spacing:0.01em;">Без звонков и списаний · 1 письмо при запуске</div>
+    </div>
 
-  <div class="container">
-    <div class="grid">
-      <div>
-        <span class="icp-line">Для тех, кто замечает: «он стал какой-то другой»</span>
-        <h1>Они не скажут, что им плохо. Но их <span class="accent">поведение</span> — скажет.</h1>
-        <p class="sub">Norma — умный ошейник для кошек и собак. Запоминает, как ваш питомец двигается, спит и гуляет — и предупреждает, когда что-то меняется.</p>
-        <div class="ctas">
-          <a class="btn sage lg" href="#closing">Получить место в первых 100 <span class="arr">→</span></a>
-          <a class="secondary-link" href="#how">Как это работает ↓</a>
-        </div>
-        <div class="micro">
-          <span class="live"></span>
-          Уже 47 человек в списке · запуск осень 2026
-        </div>
-        <div style="margin-top:10px; font-size:12px; color:rgba(255,255,255,0.38); letter-spacing:0.01em;">Без звонков и списаний · 1 письмо при запуске</div>
+    <div class="hero-visual-wrap">
+      <div class="hero-visual">
+        <video class="hero-video" autoplay muted loop playsinline>
+          <source src="hero.mp4" type="video/mp4">
+        </video>
       </div>
 
-      <div class="hero-cards-area">
-        <!-- Glass card top-left: deviation alert -->
-        <div class="glass-card hero-card-1">
-          <div class="label"><span class="ampdot"></span> Активность сегодня</div>
-          <div class="num">−23%</div>
-          <div class="desc">от Личной Нормы Миры. Третий день подряд.</div>
-        </div>
-
-        <!-- Push notification card -->
-        <div class="glass-card push-card hero-card-3">
-          <div class="ic-app">N</div>
-          <div class="body">
-            <div class="row1">
-              <span class="title">Мира <span style="color: var(--amber);">⚠</span></span>
-              <span class="time">сейчас</span>
-            </div>
-            <div class="h-line">Активность ниже нормы</div>
-            <div class="meta">−31% от обычного · 3 день подряд</div>
-            <div class="cta-line">Стоит обратить внимание →</div>
+      <!-- Push notification card -->
+      <div class="glass-card push-card hero-card-3">
+        <div class="ic-app">N</div>
+        <div class="body">
+          <div class="row1">
+            <span class="title">Мира <span style="color: var(--amber);">⚠</span></span>
+            <span class="time">сейчас</span>
           </div>
+          <div class="h-line">Активность ниже нормы</div>
+          <div class="meta">−31% от обычного · 3 день подряд</div>
+          <div class="cta-line">Стоит обратить внимание →</div>
         </div>
+      </div>
 
-        <!-- Glass card bottom-right: sleep -->
-        <div class="glass-card hero-card-2">
-          <div class="label">Качество сна</div>
-          <div class="row2">
-            <div class="num" style="font-size:24px;">7ч 42м </div>
-            <div style="font-size:11px; color: var(--sage-deep); padding-bottom: 6px;">↑ стабильно</div>
-          </div>
-          <svg class="sparkline" viewBox="0 0 200 40" preserveAspectRatio="none">
-            <polyline fill="none" stroke="#7C9A82" stroke-width="2"
-              points="0,28 20,22 40,26 60,18 80,20 100,12 120,18 140,10 160,14 180,8 200,12"/>
-            <polyline fill="rgba(124,154,130,0.15)" stroke="none"
-              points="0,28 20,22 40,26 60,18 80,20 100,12 120,18 140,10 160,14 180,8 200,12 200,40 0,40"/>
-          </svg>
+      <!-- Glass card top-left: deviation alert -->
+      <div class="glass-card hero-card-1">
+        <div class="label"><span class="ampdot"></span> Активность сегодня</div>
+        <div class="num">−23%</div>
+        <div class="desc">от Личной Нормы Миры. Третий день подряд.</div>
+      </div>
+
+      <!-- Glass card bottom-right: sleep -->
+      <div class="glass-card hero-card-2">
+        <div class="label">Качество сна</div>
+        <div class="row2">
+          <div class="num" style="font-size:24px;">7ч 42м </div>
+          <div style="font-size:11px; color: var(--sage-deep); padding-bottom: 6px;">↑ стабильно</div>
         </div>
+        <svg class="sparkline" viewBox="0 0 200 40" preserveAspectRatio="none">
+          <polyline fill="none" stroke="#7C9A82" stroke-width="2"
+            points="0,28 20,22 40,26 60,18 80,20 100,12 120,18 140,10 160,14 180,8 200,12"/>
+          <polyline fill="rgba(124,154,130,0.15)" stroke="none"
+            points="0,28 20,22 40,26 60,18 80,20 100,12 120,18 140,10 160,14 180,8 200,12 200,40 0,40"/>
+        </svg>
       </div>
     </div>
   </div>
