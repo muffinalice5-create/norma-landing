@@ -1816,7 +1816,7 @@
         <h2>Дайте Norma 42 дня. Она узнает привычки вашего питомца — и будет рядом каждый день.</h2>
         <p>Помогите нам сделать продукт, который действительно нужен.</p>
         <div class="closing-form-wrap">
-          <form class="wl-form" id="closing-form" onsubmit="event.preventDefault(); document.getElementById('closing-form').style.display='none'; document.getElementById('closing-meta').style.display='none'; document.getElementById('thanks').style.display='block';">
+          <form class="wl-form" id="closing-form">
             <div class="wl-row">
               <label>
                 <span class="wl-label">Как вас зовут?</span>
@@ -1929,6 +1929,60 @@
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
     els.forEach(el => io.observe(el));
+  })();
+
+  // Waitlist: send submissions to Telegram bot
+  (function() {
+    const BOT_TOKEN = '8902943852:AAHef8rIW2cVYpX-IbG7zU6iFDbFrGqJGBo';
+    const CHAT_ID = '6187649468';
+    const form = document.getElementById('closing-form');
+    if (!form) return;
+
+    const petMap = { cat: 'Кошка', dog: 'Собака' };
+    const concernMap = {
+      health: 'Здоровье',
+      age: 'Возраст',
+      anxiety: '«Что-то не так»',
+      lost: 'Боюсь, потеряется'
+    };
+    const contactMap = { telegram: 'Telegram', email: 'Email', phone: 'Телефон' };
+
+    function esc(s) {
+      return String(s || '').replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+    }
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const d = new FormData(form);
+      const contactType = d.get('contact_type');
+      const contactValue = d.get(contactType) || '';
+
+      const lines = [
+        '<b>🐾 Новая заявка — Norma</b>',
+        '',
+        `<b>Имя:</b> ${esc(d.get('name'))}`,
+        `<b>Питомец:</b> ${petMap[d.get('pet')] || ''}, ${esc(d.get('pet_age'))}`,
+        `<b>Волнует больше всего:</b> ${concernMap[d.get('concern')] || ''}`
+      ];
+      const details = (d.get('details') || '').trim();
+      if (details) lines.push('', `<b>Беспокоит в здоровье:</b>`, esc(details));
+      lines.push('', `<b>${contactMap[contactType] || 'Контакт'}:</b> ${esc(contactValue)}`);
+
+      // Hide form, show thanks immediately — don't block UX on network
+      document.getElementById('closing-form').style.display = 'none';
+      document.getElementById('closing-meta').style.display = 'none';
+      document.getElementById('thanks').style.display = 'block';
+
+      try {
+        await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chat_id: CHAT_ID, text: lines.join('\n'), parse_mode: 'HTML' })
+        });
+      } catch (err) {
+        console.error('Lead submit failed:', err);
+      }
+    });
   })();
 
   // Waitlist: contact channel switcher (telegram / email / phone)
